@@ -1,59 +1,79 @@
 # TermShow
 
-🎞️ A simple terminal-based slideshow tool written in Python.
+🎞️ **TermShow** is a simple terminal-based slideshow tool written in Python, designed for Unix-like environments.
 
-## Features
+## ✨ Features
 
-- Slide types: text, art (e.g. toilet/figlet), and options
-- Display with or without page numbers
-- Works in most Unix-like terminals
-- Simple slide format
+- Support for multiple slide types:
+  - `text`: normal text
+  - `art`: shell commands like `toilet`, `figlet`, etc.
+  - `options`: list-style options
+- Typewriter effect (optional)
+- Navigate using arrow keys
+- Auto-play mode with custom delay
+- Slide numbering (can be disabled)
+- Simple and readable slide format
 
-## Installation
+## 🚀 Installation
 
-Clone the repository:
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/yourusername/termshow.git
 cd termshow
 ```
 
-(Optionally) create a virtual environment:
+### 2. Install with pip
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+pip install .
 ```
 
-Install required tools (if not installed):
+> For development (editable mode):
+>
+> ```bash
+> pip install -e .
+> ```
+
+### 3. Install optional tools (for `art` slides)
 
 ```bash
-sudo apt install toilet figlet
+sudo apt install toilet
 ```
 
-## Usage
+## 🖥️ Usage
 
-Run a slide file:
+After installation, you can run the tool using:
 
 ```bash
-python3 termshow.py slides/demo.slide
+termshow slides/demo.slide
 ```
 
 ### Options:
 
-- `--no-page-number`: Hide page number indicator (e.g. `█ 1/3`)
+- `--no-page-number` – Hide the slide number (e.g., `██ 2/5`)
+- `-t` – Enable typewriter animation effect
 
-## Slide Format
+### Navigation:
 
-Example slide file:
+- `↑` / `↓` – Move between slides
+- `'a'` key – Start auto-play mode (with user-defined delay)
+- `'q'` key – Quit slideshow
 
-```txt
+## 📝 Slide Format
+
+Each slide starts with a `:::` followed by the type.
+
+Example `slides/demo.slide`:
+
+```
 ::: text
 Welcome to TermShow!
 This is a simple terminal-based slideshow tool.
 
 ::: art
-toilet "HELLO" --gay
+toilet "HELLO"
+# Avoid using color effects like '--gay' as they may not render properly in the terminal UI.
 
 ::: options
 1. Start
@@ -61,6 +81,19 @@ toilet "HELLO" --gay
 3. Exit
 ```
 
-## License
+## 🛠️ Development
 
-MIT License
+If you're working on the code:
+
+```bash
+# Create virtual environment (optional)
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies and project in editable mode
+pip install -e .
+```
+
+## 📄 License
+
+MIT License © Sina Ebadi
