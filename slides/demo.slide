@@ -3,7 +3,7 @@ Welcome to TermShow!
 This is a simple terminal-based slideshow tool.
 
 ::: art
-toilet "HELLO" --gay
+toilet "HELLO"
 
 ::: options
 1. Start
