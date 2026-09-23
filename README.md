@@ -1,5 +1,7 @@
 # TermShow
 
+![termshow](docs/preview.png)
+
 🎞️ **TermShow** is a simple terminal-based slideshow tool written in Python, designed for Unix-like environments.
 
 ## ✨ Features
