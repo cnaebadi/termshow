@@ -8,6 +8,8 @@
   - `text`: normal text
   - `art`: shell commands like `toilet`, `figlet`, etc.
   - `options`: list-style options
+- Centered slides (default), or `left` to pin content to the left
+- Text styles: normal, bold, and four header sizes (`h1`–`h4`)
 - Typewriter effect (optional)
 - Navigate using arrow keys
 - Auto-play mode with custom delay
@@ -52,7 +54,7 @@ termshow slides/demo.slide
 ### Options:
 
 - `--no-page-number` – Hide the slide number (e.g., `██ 2/5`)
-- `-t` – Enable typewriter animation effect
+- `-t` – Type normal text, bold text, and headers one character at a time
 
 ### Navigation:
 
@@ -62,14 +64,40 @@ termshow slides/demo.slide
 
 ## 📝 Slide Format
 
-Each slide starts with a `:::` followed by the type.
+Each slide starts with a `:::` followed by the type. Add `left` to keep that slide on the left side. Slides are centered by default.
+
+```
+::: text
+::: text left
+::: options center
+::: art left
+```
+
+On `text` and `options` slides, a line can set its size:
+
+| Write this | Result |
+| --- | --- |
+| `h1: Title` or `# Title` | Largest header |
+| `h2: Title` or `## Title` | Second header size |
+| `h3: Title` or `### Title` | Third header size |
+| `h4: Title` or `#### Title` | Smallest header |
+| `bold: Text` or `**Text**` | Bold |
+| anything else | Normal |
+
+Latin headers are drawn as block letters, and the size shrinks automatically when the terminal is too small. Other scripts (for example Persian) stay as colored bold text, because the terminal font cannot be scaled.
 
 Example `slides/demo.slide`:
 
 ```
 ::: text
-Welcome to TermShow!
-This is a simple terminal-based slideshow tool.
+h1: TermShow
+h2: Hi
+A normal line with a **bold** word.
+
+::: text left
+h3: Left
+h4: Side
+bold: This whole line is bold
 
 ::: art
 toilet "HELLO"
@@ -90,9 +118,25 @@ If you're working on the code:
 python3 -m venv venv
 source venv/bin/activate
 
-# Install dependencies and project in editable mode
+# Install the project in editable mode
 pip install -e .
 ```
+
+Run the tests:
+
+```bash
+python3 -m unittest discover -s tests -v
+```
+
+To check that coverage stays complete, install `coverage` and run:
+
+```bash
+python3 -m pip install coverage
+python3 -m coverage run --branch -m unittest discover -s tests
+python3 -m coverage report -m
+```
+
+The tests cover slide parsing, centering, header sizes, bold text, the typewriter effect (`-t`, including headers), art commands, auto-play, and keyboard navigation.
 
 ## 📄 License
 

@@ -1,6 +1,12 @@
 ::: text
-Welcome to TermShow!
-This is a simple terminal-based slideshow tool.
+h1: TermShow
+h2: Hi
+A normal line with a **bold** word.
+
+::: text left
+h3: Left
+h4: Side
+bold: This whole line is bold
 
 ::: art
 toilet "HELLO"
@@ -9,4 +15,3 @@ toilet "HELLO"
 1. Start
 2. Help
 3. Exit
-
